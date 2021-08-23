@@ -6,6 +6,7 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
 "nnoremap <C-n> :NERDTree<CR>
 map <C-n> :call NERDTreeToggleAndRefresh()<CR>
 
+
 function NERDTreeToggleAndRefresh()
   :NERDTreeToggle
   if g:NERDTree.IsOpen()
@@ -17,5 +18,22 @@ let NERDTreeShowHidden=1
 
 "Nerdtreegitstatus
 let g:NERDTreeGitStatusUseNerdFonts = 1
-
+"let g:NERDTreeGitStatusShowClean = 1
+let g:NERDTreeGitStatusIndicatorMapCustom = {
+                \ 'Modified'  :'✹',
+                \ 'Staged'    :'✚',
+                \ 'Untracked' :'✭',
+                \ 'Renamed'   :'➜',
+                \ 'Unmerged'  :'═',
+                \ 'Deleted'   :'✖',
+                \ 'Dirty'     :'✗',
+                \ 'Ignored'   :'☒',
+                \ 'Clean'     :'✔︎',
+                \ 'Unknown'   :'?',
+                \ }
 let g:NERDTreeMouseMode=2
+
+let g:NERDTreeDirArrowExpandable = ''
+let g:NERDTreeDirArrowCollapsible = ' '
+
+

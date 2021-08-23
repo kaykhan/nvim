@@ -8,14 +8,12 @@ require'lspconfig'.jsonls.setup{}
 require'lspconfig'.cssls.setup{}
 require'lspconfig'.html.setup{}
 
-local signs = { Error = " ", Warning = " ", Hint = " ", Information = " " }
+local signs = { Error = " ", Warning = " ", Hint = " ", Information = "" }
 for type, icon in pairs(signs) do
   local hl = "LspDiagnosticsSign" .. type
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
 EOF
-
-
 source ~/.config/nvim/lsp/efm-config.vim
 
 

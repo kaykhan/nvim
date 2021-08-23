@@ -2,7 +2,10 @@
 "https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion
 "https://github.com/hrsh7th/nvim-compe
 
-set completeopt=menuone,noinsert
+set completeopt=menuone,noinsert,noselect
+
+
+
 
 lua << EOF
 require'compe'.setup {

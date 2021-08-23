@@ -8,12 +8,13 @@ Plug 'p00f/nvim-ts-rainbow'
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
+Plug 'kyazdani42/nvim-web-devicons' " for file icons
+Plug 'kyazdani42/nvim-tree.lua'
 "Theme
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'dikiaap/minimalist'
 Plug 'christianchiarulli/nvcode-color-schemes.vim'
-Plug 'ryanoasis/vim-devicons'
 "Plug 'sainnhe/sonokai'
 Plug 'projekt0n/github-nvim-theme'
 
@@ -40,19 +41,22 @@ Plug 'folke/trouble.nvim'
 Plug 'jiangmiao/auto-pairs'
 
 "react snippets"
-Plug 'SirVer/ultisnips'
+"Plug 'SirVer/ultisnips' "causing tab to not work"
 Plug 'mlaursen/vim-react-snippets'
+
+"dev icons
+Plug 'ryanoasis/vim-devicons'
+
 call plug#end()
+ 
+
 
 
 source ~/.config/nvim/plugins/nerdtree.vim
 source ~/.config/nvim/plugins/telescope.vim
-
+"source ~/.config/nvim/plugins/nvim-tree.vim
 
 "LSP
-source ~/.config/nvim/lsp/autocomplete.vim
 source ~/.config/nvim/lsp/lsp-config.vim
-
-
-
+source ~/.config/nvim/lsp/autocomplete.vim
 
