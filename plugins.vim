@@ -41,8 +41,9 @@ Plug 'folke/trouble.nvim'
 Plug 'jiangmiao/auto-pairs'
 
 "react snippets"
-"Plug 'SirVer/ultisnips' "causing tab to not work"
+Plug 'SirVer/ultisnips' "causing tab to not work"
 Plug 'mlaursen/vim-react-snippets'
+Plug 'honza/vim-snippets'
 
 "dev icons
 Plug 'ryanoasis/vim-devicons'
@@ -50,13 +51,13 @@ Plug 'ryanoasis/vim-devicons'
 call plug#end()
  
 
+let g:UltiSnipsExpandTrigger="<Nop>"
 
 
-source ~/.config/nvim/plugins/nerdtree.vim
+"source ~/.config/nvim/plugins/nerdtree.vim
 source ~/.config/nvim/plugins/telescope.vim
-"source ~/.config/nvim/plugins/nvim-tree.vim
+source ~/.config/nvim/plugins/nvim-tree.vim
 
 "LSP
 source ~/.config/nvim/lsp/lsp-config.vim
 source ~/.config/nvim/lsp/autocomplete.vim
-

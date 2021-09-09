@@ -7,6 +7,7 @@ require("trouble").setup{}
 require'lspconfig'.jsonls.setup{}
 require'lspconfig'.cssls.setup{}
 require'lspconfig'.html.setup{}
+require'lspconfig'.prismals.setup{}
 
 local signs = { Error = " ", Warning = " ", Hint = " ", Information = "" }
 for type, icon in pairs(signs) do
@@ -47,4 +48,10 @@ nnoremap <leader>xq <cmd>TroubleToggle quickfix<cr>
 nnoremap <leader>xl <cmd>TroubleToggle loclist<cr>
 nnoremap gR <cmd>TroubleToggle lsp_references<cr>
 
+
+augroup snippets
+  autocmd!
+  autocmd BufEnter *.jsx UltiSnipsAddFiletypes html
+  autocmd BufEnter *.tsx UltiSnipsAddFiletypes html
+augroup END
 
