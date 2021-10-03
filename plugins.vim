@@ -3,7 +3,6 @@ call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'p00f/nvim-ts-rainbow'
-
 "NerdTree
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -11,6 +10,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'kyazdani42/nvim-web-devicons' " for file icons
 Plug 'kyazdani42/nvim-tree.lua'
 "Theme
+"Plug 'hoob3rt/lualine.nvim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'dikiaap/minimalist'
@@ -47,6 +47,7 @@ Plug 'honza/vim-snippets'
 
 "dev icons
 Plug 'ryanoasis/vim-devicons'
+
 
 call plug#end()
  
