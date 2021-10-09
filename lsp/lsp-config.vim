@@ -8,6 +8,9 @@ require'lspconfig'.jsonls.setup{}
 require'lspconfig'.cssls.setup{}
 require'lspconfig'.html.setup{}
 require'lspconfig'.prismals.setup{}
+--require('lualine').setup({
+--options = {theme = 'codedark'}
+--})
 
 local signs = { Error = " ", Warning = " ", Hint = " ", Information = "" }
 for type, icon in pairs(signs) do
