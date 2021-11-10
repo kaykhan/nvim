@@ -1,4 +1,5 @@
 lua << EOF
+
 local prettier = {
   formatCommand = "prettier --stdin-filepath ${INPUT}",
   formatStdin = true,
@@ -11,6 +12,27 @@ local eslint = {
   lintIgnoreExitCode = true,
   formatCommand = "eslint_d --fix-to-stdout --stdin --stdin-filename=${INPUT}",
   formatStdin = true,
+}
+
+local pylint = {
+  lintCommand = 'pylint --output-format text --score no --msg-template {path}:{line}:{column}:{C}:{msg} ${INPUT}',
+  lintStdin = false,
+  lintFormats = {"%f:%l:%c:%t:%m"},
+}
+
+local black = {
+  formatCommand = 'black --line-length 100 -',
+  formatStdin = true
+}
+
+local isort = {
+  formatCommand = "isort --profile black -",
+  formatStdin = true,
+}
+
+local autopep8 = {
+  formatCommand = "autopep8 -",
+  formatStdin = true
 }
 
 require'lspconfig'.efm.setup{
@@ -34,7 +56,8 @@ require'lspconfig'.efm.setup{
       less = {prettier},
       scss = {prettier},
       css = {prettier},
-      markdown = {prettier}
+      markdown = {prettier},
+      python = {black, isort}  
     }
   },
   filetypes = {
@@ -48,6 +71,7 @@ require'lspconfig'.efm.setup{
     "scss",
     "css",
     "html",
+    "python",
   },
 }
 

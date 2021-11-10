@@ -48,7 +48,7 @@ Plug 'honza/vim-snippets'
 "dev icons
 Plug 'ryanoasis/vim-devicons'
 
-
+Plug 'tpope/vim-surround'
 call plug#end()
  
 
