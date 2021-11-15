@@ -1,6 +1,5 @@
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 
-
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'p00f/nvim-ts-rainbow'
 "NerdTree
@@ -21,7 +20,7 @@ Plug 'projekt0n/github-nvim-theme'
 "Telescope
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope.nvim', {'commit': 'ba41f0eeb13796c26f6c5f3e8c44b2397a466e39'}
 
 "Git
 Plug 'tpope/vim-fugitive'
