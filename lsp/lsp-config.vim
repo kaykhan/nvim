@@ -8,15 +8,27 @@ require'lspconfig'.jsonls.setup{}
 require'lspconfig'.cssls.setup{}
 require'lspconfig'.html.setup{}
 require'lspconfig'.prismals.setup{}
+require'lspconfig'.terraformls.setup{}
+require'lspconfig'.gopls.setup{}
 --require('lualine').setup({
 --options = {theme = 'codedark'}
 --})
+--require("which-key").setup{}
 
 local signs = { Error = " ", Warning = " ", Hint = " ", Information = "" }
 for type, icon in pairs(signs) do
   local hl = "LspDiagnosticsSign" .. type
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
+
+
+-- jump to the next item, skipping the groups
+require("trouble").next({skip_groups = true, jump = true});
+
+-- jump to the previous item, skipping the groups
+require("trouble").previous({skip_groups = true, jump = true});
+
+
 EOF
 source ~/.config/nvim/lsp/efm-config.vim
 

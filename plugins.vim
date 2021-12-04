@@ -48,6 +48,8 @@ Plug 'honza/vim-snippets'
 Plug 'ryanoasis/vim-devicons'
 
 Plug 'tpope/vim-surround'
+Plug 'folke/which-key.nvim'
+
 call plug#end()
  
 
