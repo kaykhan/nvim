@@ -1,37 +1,15 @@
-
-"LANGUAGE SERVERS
 lua << EOF
-
 require'lspconfig'.pyright.setup{}
-require("trouble").setup{}
 require'lspconfig'.jsonls.setup{}
 require'lspconfig'.cssls.setup{}
 require'lspconfig'.html.setup{}
 require'lspconfig'.prismals.setup{}
 require'lspconfig'.terraformls.setup{}
 require'lspconfig'.gopls.setup{}
---require('lualine').setup({
---options = {theme = 'codedark'}
---})
---require("which-key").setup{}
-
-local signs = { Error = " ", Warning = " ", Hint = " ", Information = "" }
-for type, icon in pairs(signs) do
-  local hl = "LspDiagnosticsSign" .. type
-  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-end
-
-
--- jump to the next item, skipping the groups
-require("trouble").next({skip_groups = true, jump = true});
-
--- jump to the previous item, skipping the groups
-require("trouble").previous({skip_groups = true, jump = true});
-
-
 EOF
-source ~/.config/nvim/lsp/efm-config.vim
 
+source ~/.config/nvim/plugins/lsp/efm.vim
+source ~/.config/nvim/plugins/lsp/tsserver.vim
 
 nnoremap gD :lua vim.lsp.buf.declaration()<CR>
 nnoremap gd :lua vim.lsp.buf.definition()<CR>
@@ -50,23 +28,3 @@ nnoremap [d :lua vim.lsp.diagnostic.goto_prev()<CR>
 nnoremap ]d :lua vim.lsp.diagnostic.goto_next()<CR>
 nnoremap <space>q :lua vim.lsp.diagnostic.set_loclist({workspace = true})<CR>
 nnoremap <space>f :lua vim.lsp.buf.formatting()<CR>
-
-
-
-
-
-"trouble
-nnoremap <leader>xx <cmd>TroubleToggle<cr>
-nnoremap <leader>xw <cmd>TroubleToggle lsp_workspace_diagnostics<cr>
-nnoremap <leader>xd <cmd>TroubleToggle lsp_document_diagnostics<cr>
-nnoremap <leader>xq <cmd>TroubleToggle quickfix<cr>
-nnoremap <leader>xl <cmd>TroubleToggle loclist<cr>
-nnoremap gR <cmd>TroubleToggle lsp_references<cr>
-
-
-augroup snippets
-  autocmd!
-  autocmd BufEnter *.jsx UltiSnipsAddFiletypes html
-  autocmd BufEnter *.tsx UltiSnipsAddFiletypes html
-augroup END
-

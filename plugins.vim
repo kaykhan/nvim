@@ -53,13 +53,12 @@ Plug 'folke/which-key.nvim'
 call plug#end()
  
 
-let g:UltiSnipsExpandTrigger="<Nop>"
 
-
-"source ~/.config/nvim/plugins/nerdtree.vim
 source ~/.config/nvim/plugins/telescope.vim
 source ~/.config/nvim/plugins/nvim-tree.vim
+source ~/.config/nvim/plugins/nvim-compe.vim
+source ~/.config/nvim/plugins/trouble.vim
+source ~/.config/nvim/plugins/ultisnips.vim
+source ~/.config/nvim/plugins/nvim-treesitter.vim
 
-"LSP
-source ~/.config/nvim/lsp/lsp-config.vim
-source ~/.config/nvim/lsp/autocomplete.vim
+source ~/.config/nvim/plugins/lsp/lsp.vim
