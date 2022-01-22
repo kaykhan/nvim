@@ -6,6 +6,7 @@ require'lspconfig'.html.setup{}
 require'lspconfig'.prismals.setup{}
 require'lspconfig'.terraformls.setup{}
 require'lspconfig'.gopls.setup{}
+require'lspconfig'.solang.setup{}
 EOF
 
 source ~/.config/nvim/plugins/lsp/efm.vim

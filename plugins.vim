@@ -50,6 +50,10 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'tpope/vim-surround'
 Plug 'folke/which-key.nvim'
 
+
+"solidity - remove once lsp config version works again
+Plug 'tomlion/vim-solidity'
+
 call plug#end()
  
 
