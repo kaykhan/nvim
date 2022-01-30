@@ -6,12 +6,6 @@
 " License: MIT License
 " =============================================================================
 
-" g:sonokai#tmux: is in tmux < 2.9 or not {{{
-let g:sonokai#tmux = executable('tmux') && $TMUX !=# '' ?
-                  \ (str2float(system("tmux -V | grep -oE '[0-9]+\.[0-9]*'")) < 2.9 ?
-                    \ 1 :
-                    \ 0) :
-                  \ 0 "}}}
 function! sonokai#get_configuration() "{{{
   return {
         \ 'style': get(g:, 'sonokai_style', 'default'),
@@ -20,7 +14,7 @@ function! sonokai#get_configuration() "{{{
         \ 'enable_italic': get(g:, 'sonokai_enable_italic', 0),
         \ 'cursor': get(g:, 'sonokai_cursor', 'auto'),
         \ 'menu_selection_background': get(g:, 'sonokai_menu_selection_background', 'blue'),
-        \ 'sign_column_background': get(g:, 'sonokai_sign_column_background', 'default'),
+        \ 'spell_foreground': get(g:, 'sonokai_spell_foreground', 'none'),
         \ 'show_eob': get(g:, 'sonokai_show_eob', 1),
         \ 'current_word': get(g:, 'sonokai_current_word', get(g:, 'sonokai_transparent_background', 0) == 0 ? 'grey background' : 'bold'),
         \ 'lightline_disable_bold': get(g:, 'sonokai_lightline_disable_bold', 0),
@@ -33,153 +27,159 @@ endfunction "}}}
 function! sonokai#get_palette(style) "{{{
   if a:style ==# 'default'
     let palette = {
-          \ 'black':      ['#181819',   '237',  'DarkGrey'],
-          \ 'bg0':        ['#2c2e34',   '235',  'Black'],
-          \ 'bg1':        ['#3F3F3F',   '236',  'DarkGrey'],
-          \ 'bg2':        ['#363944',   '236',  'DarkGrey'],
-          \ 'bg3':        ['#3b3e48',   '237',  'DarkGrey'],
-          \ 'bg4':        ['#414550',   '237',  'Grey'],
-          \ 'bg_red':     ['#ff6077',   '203',  'Red'],
-          \ 'diff_red':   ['#55393d',   '52',   'DarkRed'],
-          \ 'bg_green':   ['#a7df78',   '107',  'Green'],
-          \ 'diff_green': ['#394634',   '22',   'DarkGreen'],
-          \ 'bg_blue':    ['#85d3f2',   '110',  'Blue'],
-          \ 'diff_blue':  ['#354157',   '17',   'DarkBlue'],
-          \ 'diff_yellow':['#4e432f',   '54',   'DarkMagenta'],
-          \ 'fg':         ['#e2e2e3',   '250',  'White'],
-          \ 'red':        ['#fc5d7c',   '203',  'Red'],
-          \ 'orange':     ['#f39660',   '215',  'Orange'],
-          \ 'yellow':     ['#e7c664',   '179',  'Yellow'],
-          \ 'green':      ['#9ed072',   '107',  'Green'],
-          \ 'blue':       ['#76cce0',   '110',  'Blue'],
-          \ 'purple':     ['#b39df3',   '176',  'Magenta'],
-          \ 'grey':       ['#7f8490',   '246',  'LightGrey'],
-          \ 'none':       ['NONE',      'NONE', 'NONE']
+          \ 'black':      ['#181819',   '237'],
+          \ 'bg0':        ['#2c2e34',   '235'],
+          \ 'bg1':        ['#33353f',   '236'],
+          \ 'bg2':        ['#363944',   '236'],
+          \ 'bg3':        ['#3b3e48',   '237'],
+          \ 'bg4':        ['#414550',   '237'],
+          \ 'bg_red':     ['#ff6077',   '203'],
+          \ 'diff_red':   ['#55393d',   '52'],
+          \ 'bg_green':   ['#a7df78',   '107'],
+          \ 'diff_green': ['#394634',   '22'],
+          \ 'bg_blue':    ['#85d3f2',   '110'],
+          \ 'diff_blue':  ['#354157',   '17'],
+          \ 'diff_yellow':['#4e432f',   '54'],
+          \ 'fg':         ['#e2e2e3',   '250'],
+          \ 'red':        ['#fc5d7c',   '203'],
+          \ 'orange':     ['#f39660',   '215'],
+          \ 'yellow':     ['#e7c664',   '179'],
+          \ 'green':      ['#9ed072',   '107'],
+          \ 'blue':       ['#76cce0',   '110'],
+          \ 'purple':     ['#b39df3',   '176'],
+          \ 'grey':       ['#7f8490',   '246'],
+          \ 'grey_dim':   ['#595f6f',   '240'],
+          \ 'none':       ['NONE',      'NONE']
           \ }
   elseif a:style ==# 'shusia'
     let palette = {
-          \ 'black':      ['#1a181a',   '237',  'DarkGrey'],
-          \ 'bg0':        ['#191919',   '235',  'Black'],
-          \ 'bg1':        ['#282828',   '236',  'DarkGrey'],
-          \ 'bg2':        ['#3b383e',   '236',  'DarkGrey'],
-          \ 'bg3':        ['#423f46',   '237',  'DarkGrey'],
-          \ 'bg4':        ['#49464e',   '237',  'Grey'],
-          \ 'bg_red':     ['#ff6188',   '203',  'Red'],
-          \ 'diff_red':   ['#55393d',   '52',   'DarkRed'],
-          \ 'bg_green':   ['#a9dc76',   '107',  'Green'],
-          \ 'diff_green': ['#394634',   '22',   'DarkGreen'],
-          \ 'bg_blue':    ['#78dce8',   '110',  'Blue'],
-          \ 'diff_blue':  ['#354157',   '17',   'DarkBlue'],
-          \ 'diff_yellow':['#4e432f',   '54',   'DarkMagenta'],
-          \ 'fg':         ['#e3e1e4',   '250',  'White'],
-          \ 'red':        ['#f85e84',   '203',  'Red'],
-          \ 'orange':     ['#ef9062',   '215',  'Orange'],
-          \ 'yellow':     ['#e5c463',   '179',  'Yellow'],
-          \ 'green':      ['#9ecd6f',   '107',  'Green'],
-          \ 'blue':       ['#7accd7',   '110',  'Blue'],
-          \ 'purple':     ['#ab9df2',   '176',  'Magenta'],
-          \ 'grey':       ['#848089',   '246',  'LightGrey'],
-          \ 'none':       ['NONE',      'NONE', 'NONE']
+          \ 'black':      ['#1a181a',   '237'],
+          \ 'bg0':        ['#191919',   '235'],
+          \ 'bg1':        ['#37343a',   '236'],
+          \ 'bg2':        ['#3b383e',   '236'],
+          \ 'bg3':        ['#423f46',   '237'],
+          \ 'bg4':        ['#49464e',   '237'],
+          \ 'bg_red':     ['#ff6188',   '203'],
+          \ 'diff_red':   ['#55393d',   '52'],
+          \ 'bg_green':   ['#a9dc76',   '107'],
+          \ 'diff_green': ['#394634',   '22'],
+          \ 'bg_blue':    ['#78dce8',   '110'],
+          \ 'diff_blue':  ['#354157',   '17'],
+          \ 'diff_yellow':['#4e432f',   '54'],
+          \ 'fg':         ['#e3e1e4',   '250'],
+          \ 'red':        ['#f85e84',   '203'],
+          \ 'orange':     ['#ef9062',   '215'],
+          \ 'yellow':     ['#e5c463',   '179'],
+          \ 'green':      ['#9ecd6f',   '107'],
+          \ 'blue':       ['#7accd7',   '110'],
+          \ 'purple':     ['#ab9df2',   '176'],
+          \ 'grey':       ['#848089',   '246'],
+          \ 'grey_dim':   ['#605d68',   '240'],
+          \ 'none':       ['NONE',      'NONE']
           \ }
   elseif a:style ==# 'andromeda'
     let palette = {
-          \ 'black':      ['#181a1c',   '237',  'DarkGrey'],
-          \ 'bg0':        ['#2b2d3a',   '235',  'Black'],
-          \ 'bg1':        ['#333648',   '236',  'DarkGrey'],
-          \ 'bg2':        ['#363a4e',   '236',  'DarkGrey'],
-          \ 'bg3':        ['#393e53',   '237',  'DarkGrey'],
-          \ 'bg4':        ['#3f445b',   '237',  'Grey'],
-          \ 'bg_red':     ['#ff6188',   '203',  'Red'],
-          \ 'diff_red':   ['#55393d',   '52',   'DarkRed'],
-          \ 'bg_green':   ['#a9dc76',   '107',  'Green'],
-          \ 'diff_green': ['#394634',   '22',   'DarkGreen'],
-          \ 'bg_blue':    ['#77d5f0',   '110',  'Blue'],
-          \ 'diff_blue':  ['#354157',   '17',   'DarkBlue'],
-          \ 'diff_yellow':['#4e432f',   '54',   'DarkMagenta'],
-          \ 'fg':         ['#e1e3e4',   '250',  'White'],
-          \ 'red':        ['#fb617e',   '203',  'Red'],
-          \ 'orange':     ['#f89860',   '215',  'Orange'],
-          \ 'yellow':     ['#edc763',   '179',  'Yellow'],
-          \ 'green':      ['#9ed06c',   '107',  'Green'],
-          \ 'blue':       ['#6dcae8',   '110',  'Blue'],
-          \ 'purple':     ['#bb97ee',   '176',  'Magenta'],
-          \ 'grey':       ['#7e8294',   '246',  'LightGrey'],
-          \ 'none':       ['NONE',      'NONE', 'NONE']
+          \ 'black':      ['#181a1c',   '237'],
+          \ 'bg0':        ['#2b2d3a',   '235'],
+          \ 'bg1':        ['#333648',   '236'],
+          \ 'bg2':        ['#363a4e',   '236'],
+          \ 'bg3':        ['#393e53',   '237'],
+          \ 'bg4':        ['#3f445b',   '237'],
+          \ 'bg_red':     ['#ff6188',   '203'],
+          \ 'diff_red':   ['#55393d',   '52'],
+          \ 'bg_green':   ['#a9dc76',   '107'],
+          \ 'diff_green': ['#394634',   '22'],
+          \ 'bg_blue':    ['#77d5f0',   '110'],
+          \ 'diff_blue':  ['#354157',   '17'],
+          \ 'diff_yellow':['#4e432f',   '54'],
+          \ 'fg':         ['#e1e3e4',   '250'],
+          \ 'red':        ['#fb617e',   '203'],
+          \ 'orange':     ['#f89860',   '215'],
+          \ 'yellow':     ['#edc763',   '179'],
+          \ 'green':      ['#9ed06c',   '107'],
+          \ 'blue':       ['#6dcae8',   '110'],
+          \ 'purple':     ['#bb97ee',   '176'],
+          \ 'grey':       ['#7e8294',   '246'],
+          \ 'grey_dim':   ['#5a5e7a',   '240'],
+          \ 'none':       ['NONE',      'NONE']
           \ }
   elseif a:style ==# 'atlantis'
     let palette = {
-          \ 'black':      ['#181a1c',   '237',  'DarkGrey'],
-          \ 'bg0':        ['#2a2f38',   '235',  'Black'],
-          \ 'bg1':        ['#333846',   '236',  'DarkGrey'],
-          \ 'bg2':        ['#373c4b',   '236',  'DarkGrey'],
-          \ 'bg3':        ['#3d4455',   '237',  'DarkGrey'],
-          \ 'bg4':        ['#424b5b',   '237',  'Grey'],
-          \ 'bg_red':     ['#ff6d7e',   '203',  'Red'],
-          \ 'diff_red':   ['#55393d',   '52',   'DarkRed'],
-          \ 'bg_green':   ['#a5e179',   '107',  'Green'],
-          \ 'diff_green': ['#394634',   '22',   'DarkGreen'],
-          \ 'bg_blue':    ['#7ad5f1',   '110',  'Blue'],
-          \ 'diff_blue':  ['#354157',   '17',   'DarkBlue'],
-          \ 'diff_yellow':['#4e432f',   '54',   'DarkMagenta'],
-          \ 'fg':         ['#e1e3e4',   '250',  'White'],
-          \ 'red':        ['#ff6578',   '203',  'Red'],
-          \ 'orange':     ['#f69c5e',   '215',  'Orange'],
-          \ 'yellow':     ['#eacb64',   '179',  'Yellow'],
-          \ 'green':      ['#9dd274',   '107',  'Green'],
-          \ 'blue':       ['#72cce8',   '110',  'Blue'],
-          \ 'purple':     ['#ba9cf3',   '176',  'Magenta'],
-          \ 'grey':       ['#828a9a',   '246',  'LightGrey'],
-          \ 'none':       ['NONE',      'NONE', 'NONE']
+          \ 'black':      ['#181a1c',   '237'],
+          \ 'bg0':        ['#2a2f38',   '235'],
+          \ 'bg1':        ['#333846',   '236'],
+          \ 'bg2':        ['#373c4b',   '236'],
+          \ 'bg3':        ['#3d4455',   '237'],
+          \ 'bg4':        ['#424b5b',   '237'],
+          \ 'bg_red':     ['#ff6d7e',   '203'],
+          \ 'diff_red':   ['#55393d',   '52'],
+          \ 'bg_green':   ['#a5e179',   '107'],
+          \ 'diff_green': ['#394634',   '22'],
+          \ 'bg_blue':    ['#7ad5f1',   '110'],
+          \ 'diff_blue':  ['#354157',   '17'],
+          \ 'diff_yellow':['#4e432f',   '54'],
+          \ 'fg':         ['#e1e3e4',   '250'],
+          \ 'red':        ['#ff6578',   '203'],
+          \ 'orange':     ['#f69c5e',   '215'],
+          \ 'yellow':     ['#eacb64',   '179'],
+          \ 'green':      ['#9dd274',   '107'],
+          \ 'blue':       ['#72cce8',   '110'],
+          \ 'purple':     ['#ba9cf3',   '176'],
+          \ 'grey':       ['#828a9a',   '246'],
+          \ 'grey_dim':   ['#5a6477',   '240'],
+          \ 'none':       ['NONE',      'NONE']
           \ }
   elseif a:style ==# 'maia'
     let palette = {
-          \ 'black':      ['#1c1e1f',   '237',  'DarkGrey'],
-          \ 'bg0':        ['#273136',   '235',  'Black'],
-          \ 'bg1':        ['#313b42',   '236',  'DarkGrey'],
-          \ 'bg2':        ['#353f46',   '236',  'DarkGrey'],
-          \ 'bg3':        ['#3a444b',   '237',  'DarkGrey'],
-          \ 'bg4':        ['#414b53',   '237',  'Grey'],
-          \ 'bg_red':     ['#ff6d7e',   '203',  'Red'],
-          \ 'diff_red':   ['#55393d',   '52',   'DarkRed'],
-          \ 'bg_green':   ['#a2e57b',   '107',  'Green'],
-          \ 'diff_green': ['#394634',   '22',   'DarkGreen'],
-          \ 'bg_blue':    ['#7cd5f1',   '110',  'Blue'],
-          \ 'diff_blue':  ['#354157',   '17',   'DarkBlue'],
-          \ 'diff_yellow':['#4e432f',   '54',   'DarkMagenta'],
-          \ 'fg':         ['#e1e2e3',   '250',  'White'],
-          \ 'red':        ['#f76c7c',   '203',  'Red'],
-          \ 'orange':     ['#f3a96a',   '215',  'Orange'],
-          \ 'yellow':     ['#e3d367',   '179',  'Yellow'],
-          \ 'green':      ['#9cd57b',   '107',  'Green'],
-          \ 'blue':       ['#78cee9',   '110',  'Blue'],
-          \ 'purple':     ['#baa0f8',   '176',  'Magenta'],
-          \ 'grey':       ['#82878b',   '246',  'LightGrey'],
-          \ 'none':       ['NONE',      'NONE', 'NONE']
+          \ 'black':      ['#1c1e1f',   '237'],
+          \ 'bg0':        ['#273136',   '235'],
+          \ 'bg1':        ['#313b42',   '236'],
+          \ 'bg2':        ['#353f46',   '236'],
+          \ 'bg3':        ['#3a444b',   '237'],
+          \ 'bg4':        ['#414b53',   '237'],
+          \ 'bg_red':     ['#ff6d7e',   '203'],
+          \ 'diff_red':   ['#55393d',   '52'],
+          \ 'bg_green':   ['#a2e57b',   '107'],
+          \ 'diff_green': ['#394634',   '22'],
+          \ 'bg_blue':    ['#7cd5f1',   '110'],
+          \ 'diff_blue':  ['#354157',   '17'],
+          \ 'diff_yellow':['#4e432f',   '54'],
+          \ 'fg':         ['#e1e2e3',   '250'],
+          \ 'red':        ['#f76c7c',   '203'],
+          \ 'orange':     ['#f3a96a',   '215'],
+          \ 'yellow':     ['#e3d367',   '179'],
+          \ 'green':      ['#9cd57b',   '107'],
+          \ 'blue':       ['#78cee9',   '110'],
+          \ 'purple':     ['#baa0f8',   '176'],
+          \ 'grey':       ['#82878b',   '246'],
+          \ 'grey_dim':   ['#55626d',   '240'],
+          \ 'none':       ['NONE',      'NONE']
           \ }
   elseif a:style ==# 'espresso'
     let palette = {
-          \ 'black':      ['#1f1e1c',   '237',  'DarkGrey'],
-          \ 'bg0':        ['#312c2b',   '235',  'Black'],
-          \ 'bg1':        ['#393230',   '236',  'DarkGrey'],
-          \ 'bg2':        ['#413937',   '236',  'DarkGrey'],
-          \ 'bg3':        ['#49403c',   '237',  'DarkGrey'],
-          \ 'bg4':        ['#4e433f',   '237',  'Grey'],
-          \ 'bg_red':     ['#fd6883',   '203',  'Red'],
-          \ 'diff_red':   ['#55393d',   '52',   'DarkRed'],
-          \ 'bg_green':   ['#adda78',   '107',  'Green'],
-          \ 'diff_green': ['#394634',   '22',   'DarkGreen'],
-          \ 'bg_blue':    ['#85dad2',   '110',  'Blue'],
-          \ 'diff_blue':  ['#354157',   '17',   'DarkBlue'],
-          \ 'diff_yellow':['#4e432f',   '54',   'DarkMagenta'],
-          \ 'fg':         ['#e4e3e1',   '250',  'White'],
-          \ 'red':        ['#f86882',   '203',  'Red'],
-          \ 'orange':     ['#f08d71',   '215',  'Orange'],
-          \ 'yellow':     ['#f0c66f',   '179',  'Yellow'],
-          \ 'green':      ['#a6cd77',   '107',  'Green'],
-          \ 'blue':       ['#81d0c9',   '110',  'Blue'],
-          \ 'purple':     ['#9fa0e1',   '176',  'Magenta'],
-          \ 'grey':       ['#90817b',   '246',  'LightGrey'],
-          \ 'none':       ['NONE',      'NONE', 'NONE']
+          \ 'black':      ['#1f1e1c',   '237'],
+          \ 'bg0':        ['#312c2b',   '235'],
+          \ 'bg1':        ['#393230',   '236'],
+          \ 'bg2':        ['#413937',   '236'],
+          \ 'bg3':        ['#49403c',   '237'],
+          \ 'bg4':        ['#4e433f',   '237'],
+          \ 'bg_red':     ['#fd6883',   '203'],
+          \ 'diff_red':   ['#55393d',   '52'],
+          \ 'bg_green':   ['#adda78',   '107'],
+          \ 'diff_green': ['#394634',   '22'],
+          \ 'bg_blue':    ['#85dad2',   '110'],
+          \ 'diff_blue':  ['#354157',   '17'],
+          \ 'diff_yellow':['#4e432f',   '54'],
+          \ 'fg':         ['#e4e3e1',   '250'],
+          \ 'red':        ['#f86882',   '203'],
+          \ 'orange':     ['#f08d71',   '215'],
+          \ 'yellow':     ['#f0c66f',   '179'],
+          \ 'green':      ['#a6cd77',   '107'],
+          \ 'blue':       ['#81d0c9',   '110'],
+          \ 'purple':     ['#9fa0e1',   '176'],
+          \ 'grey':       ['#90817b',   '246'],
+          \ 'grey_dim':   ['#6a5e59',   '240'],
+          \ 'none':       ['NONE',      'NONE']
           \ }
   endif
   return palette
@@ -191,11 +191,7 @@ function! sonokai#highlight(group, fg, bg, ...) "{{{
         \ 'ctermfg=' . a:fg[1]
         \ 'ctermbg=' . a:bg[1]
         \ 'gui=' . (a:0 >= 1 ?
-          \ (a:1 ==# 'undercurl' ?
-            \ (g:sonokai#tmux ?
-              \ 'underline' :
-              \ 'undercurl') :
-            \ a:1) :
+          \ a:1 :
           \ 'NONE')
         \ 'cterm=' . (a:0 >= 1 ?
           \ (a:1 ==# 'undercurl' ?
@@ -255,6 +251,8 @@ function! sonokai#ft_write(rootpath, ft, content) "{{{
   endif
   " Append the content.
   call writefile(split(a:content, "\n"), ft_path, 'a')
+  " Add modeline.
+  call writefile(['" vim: set sw=2 ts=2 sts=2 et tw=80 ft=vim fdm=marker fmr={{{,}}}:'], ft_path, 'a')
 endfunction "}}}
 function! sonokai#ft_rootpath(path) "{{{
   " Get the directory where `after/ftplugin` is generated.
