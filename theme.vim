@@ -19,6 +19,7 @@ colorscheme sonokai
 if (has("termguicolors"))
     set termguicolors
     hi LineNr ctermbg=NONE guibg=NONE
+    hi CursorLineNr guifg=#ffdd33
 endif
 
 
@@ -29,11 +30,11 @@ endif
 
 
 
-let g:airline_theme = "minimalist" 
+"let g:airline_theme = "minimalist" 
 
 """"""""""AIRLINE
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
+"let g:airline#extensions#tabline#enabled = 1
+"let g:airline_powerline_fonts = 1
 
 "gitgutter
 let g:gitgutter_sign_added = "▌"

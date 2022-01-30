@@ -9,9 +9,10 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'kyazdani42/nvim-web-devicons' " for file icons
 Plug 'kyazdani42/nvim-tree.lua'
 "Theme
-"Plug 'hoob3rt/lualine.nvim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'nvim-lualine/lualine.nvim'
+Plug 'akinsho/bufferline.nvim'
+"Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
 Plug 'dikiaap/minimalist'
 Plug 'christianchiarulli/nvcode-color-schemes.vim'
 "Plug 'sainnhe/sonokai'
@@ -20,7 +21,7 @@ Plug 'projekt0n/github-nvim-theme'
 "Telescope
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim', {'commit': 'ba41f0eeb13796c26f6c5f3e8c44b2397a466e39'}
+Plug 'nvim-telescope/telescope.nvim'
 
 "Git
 Plug 'tpope/vim-fugitive'
@@ -64,5 +65,7 @@ source ~/.config/nvim/plugins/nvim-compe.vim
 source ~/.config/nvim/plugins/trouble.vim
 source ~/.config/nvim/plugins/ultisnips.vim
 source ~/.config/nvim/plugins/nvim-treesitter.vim
+source ~/.config/nvim/plugins/lualine.vim
+"source ~/.config/nvim/plugins/bufferline.vim
 
 source ~/.config/nvim/plugins/lsp/lsp.vim
