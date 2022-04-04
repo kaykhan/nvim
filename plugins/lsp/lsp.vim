@@ -7,6 +7,7 @@ require'lspconfig'.prismals.setup{}
 require'lspconfig'.terraformls.setup{}
 require'lspconfig'.gopls.setup{}
 require'lspconfig'.solang.setup{}
+vim.lsp.set_log_level("debug")
 EOF
 
 source ~/.config/nvim/plugins/lsp/efm.vim
