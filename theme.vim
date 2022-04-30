@@ -24,12 +24,6 @@ endif
 
 
 
-
-
-
-
-
-
 "let g:airline_theme = "minimalist" 
 
 """"""""""AIRLINE
