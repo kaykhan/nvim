@@ -6,6 +6,9 @@ Plug 'p00f/nvim-ts-rainbow'
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
+"dev icons
+Plug 'ryanoasis/vim-devicons'
+
 Plug 'kyazdani42/nvim-web-devicons' " for file icons
 Plug 'kyazdani42/nvim-tree.lua'
 "Theme
@@ -34,7 +37,6 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
 
 "diagnostic list
-Plug 'kyazdani42/nvim-web-devicons'
 Plug 'folke/trouble.nvim'
 
 "pairs"
@@ -44,9 +46,6 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'SirVer/ultisnips' "causing tab to not work"
 Plug 'mlaursen/vim-react-snippets'
 Plug 'honza/vim-snippets'
-
-"dev icons
-Plug 'ryanoasis/vim-devicons'
 
 Plug 'tpope/vim-surround'
 Plug 'folke/which-key.nvim'
