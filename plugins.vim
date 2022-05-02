@@ -33,9 +33,17 @@ Plug 'airblade/vim-gitgutter'
 "lspconfig
 Plug 'neovim/nvim-lspconfig'
 
-"auto complete
-Plug 'hrsh7th/nvim-compe'
+"autocomplete
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
 
+Plug 'ray-x/lsp_signature.nvim'
+
+"indentline
+Plug 'lukas-reineke/indent-blankline.nvim'
 "diagnostic list
 Plug 'folke/trouble.nvim'
 
@@ -58,13 +66,16 @@ call plug#end()
  
 
 
+source ~/.config/nvim/plugins/lsp/lsp.vim
 source ~/.config/nvim/plugins/telescope.vim
 source ~/.config/nvim/plugins/nvim-tree.vim
-source ~/.config/nvim/plugins/nvim-compe.vim
 source ~/.config/nvim/plugins/trouble.vim
 source ~/.config/nvim/plugins/ultisnips.vim
 source ~/.config/nvim/plugins/nvim-treesitter.vim
 source ~/.config/nvim/plugins/lualine.vim
+source ~/.config/nvim/plugins/nvim-cmp.vim
+source ~/.config/nvim/plugins/lsp-signature.vim
+source ~/.config/nvim/plugins/indent-blankline.vim
 "source ~/.config/nvim/plugins/bufferline.vim
 
-source ~/.config/nvim/plugins/lsp/lsp.vim
+

@@ -37,6 +37,8 @@ local autopep8 = {
 
 require'lspconfig'.efm.setup{
   on_attach = function(client)
+    local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+    capabilities = capabilities
     client.resolved_capabilities.goto_definition = false
     client.resolved_capabilities.declaration = false  
   end,
