@@ -13,6 +13,7 @@ colorscheme sonokai
 
 
 
+hi Search guibg=#ffdd33 guifg=#000000
 
 
 " checks if your terminal has 24-bit color support

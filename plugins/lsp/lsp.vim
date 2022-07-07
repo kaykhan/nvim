@@ -1,4 +1,5 @@
 lua << EOF
+
 require'lspconfig'.pyright.setup{}
 require'lspconfig'.jsonls.setup{}
 require'lspconfig'.cssls.setup{}
@@ -6,10 +7,10 @@ require'lspconfig'.html.setup{}
 require'lspconfig'.prismals.setup{}
 require'lspconfig'.terraformls.setup{}
 require'lspconfig'.gopls.setup{}
-require'lspconfig'.solang.setup{}
+require'lspconfig'.rls.setup{}
+require'lspconfig'.solc.setup{}
 
-
-vim.lsp.set_log_level("debug")
+--vim.lsp.set_log_level("debug")
 EOF
 
 source ~/.config/nvim/plugins/lsp/efm.vim

@@ -131,12 +131,12 @@ require'nvim-tree'.setup { -- BEGIN_DEFAULT_OPTS
   },
   filters = {
     dotfiles = false,
-    custom = {'node_modules', '.cache'},
+    custom = {'node_modules'},
     exclude = {'.env'}
   },
   git = {
     enable = true,
-    ignore = true,
+    ignore = false,
     timeout = 400,
   },
   actions = {
@@ -150,7 +150,7 @@ require'nvim-tree'.setup { -- BEGIN_DEFAULT_OPTS
       quit_on_open = true,
       resize_window = false,
       window_picker = {
-        enable = true,
+        enable = false,
         chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
         exclude = {
           filetype = { "notify", "packer", "qf", "diff", "fugitive", "fugitiveblame" },

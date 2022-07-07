@@ -51,16 +51,15 @@ Plug 'folke/trouble.nvim'
 Plug 'jiangmiao/auto-pairs'
 
 "react snippets"
-Plug 'SirVer/ultisnips' "causing tab to not work"
+Plug 'SirVer/ultisnips' "causing tab to not work
 Plug 'mlaursen/vim-react-snippets'
 Plug 'honza/vim-snippets'
 
 Plug 'tpope/vim-surround'
 Plug 'folke/which-key.nvim'
 
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 
-"solidity - remove once lsp config version works again
-Plug 'tomlion/vim-solidity'
 
 call plug#end()
  
