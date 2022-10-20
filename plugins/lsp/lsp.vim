@@ -9,6 +9,7 @@ require'lspconfig'.terraformls.setup{}
 require'lspconfig'.gopls.setup{}
 require'lspconfig'.rls.setup{}
 require'lspconfig'.solc.setup{}
+require'lspconfig'.vimls.setup{}
 
 --vim.lsp.set_log_level("debug")
 EOF

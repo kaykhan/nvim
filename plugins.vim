@@ -2,10 +2,6 @@ call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'p00f/nvim-ts-rainbow'
-"NerdTree
-Plug 'preservim/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-
 "dev icons
 Plug 'ryanoasis/vim-devicons'
 
@@ -65,11 +61,11 @@ call plug#end()
  
 
 
+source ~/.config/nvim/plugins/ultisnips.vim
 source ~/.config/nvim/plugins/lsp/lsp.vim
 source ~/.config/nvim/plugins/telescope.vim
 source ~/.config/nvim/plugins/nvim-tree.vim
 source ~/.config/nvim/plugins/trouble.vim
-source ~/.config/nvim/plugins/ultisnips.vim
 source ~/.config/nvim/plugins/nvim-treesitter.vim
 source ~/.config/nvim/plugins/lualine.vim
 source ~/.config/nvim/plugins/nvim-cmp.vim
