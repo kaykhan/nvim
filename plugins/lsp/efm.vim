@@ -53,6 +53,7 @@ require'lspconfig'.efm.setup{
       ["javascript.jsx"] = {prettier, eslint},
       ["typescript.tsx"] = {prettier, eslint},
       yaml = {prettier},
+      yml = {prettier},
       json = {prettier},
       html = {prettier},
       less = {prettier},
@@ -74,6 +75,9 @@ require'lspconfig'.efm.setup{
     "css",
     "html",
     "python",
+    "json",
+    "yaml",
+    "yml",
   },
 }
 

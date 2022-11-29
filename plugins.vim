@@ -56,6 +56,11 @@ Plug 'folke/which-key.nvim'
 
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 
+Plug 'mfussenegger/nvim-dap'
+Plug 'rcarriga/nvim-dap-ui'
+Plug 'mxsdev/nvim-dap-vscode-js'
+
+
 
 call plug#end()
  
@@ -72,5 +77,6 @@ source ~/.config/nvim/plugins/nvim-cmp.vim
 source ~/.config/nvim/plugins/lsp-signature.vim
 source ~/.config/nvim/plugins/indent-blankline.vim
 "source ~/.config/nvim/plugins/bufferline.vim
+source ~/.config/nvim/plugins/dap.vim
 
 
